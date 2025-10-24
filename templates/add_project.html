@@ -1,0 +1,68 @@
+<!-- templates/add_project.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Add Project</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    form.project-form { max-width: 780px; margin: 1rem auto; background:#fff; padding:1rem; border:1px solid #eee; border-radius:10px; }
+    .field { margin-bottom: 1rem; }
+    .field label { display:block; font-weight:600; margin-bottom:0.4rem; }
+    .field input[type="text"], .field textarea {
+      width:100%; padding:0.6rem; border:1px solid #ccc; border-radius:8px; font: inherit;
+    }
+    .hint { font-size:0.9rem; color:#666; margin-top:0.25rem; }
+    .actions { display:flex; gap:0.75rem; align-items:center; }
+    .button { padding:0.55rem 0.95rem; border:1px solid #999; border-radius:8px; text-decoration:none; background:#f8f8f8; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="topnav">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>Aishwarya Kondaparthi</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/templates/index.html">Home</a></li>
+                <li><a href="/templates/about.html">About Me</a></li>
+                <li><a href="/templates/resume.html">Resume</a></li>
+                <li><a href="/templates/projects.html">Projects</a></li>
+                <li><a href="/templates/add_project.html" class="active">Add Projects</a></li>
+                <li><a href="/templates/contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Add a Project</h1>
+    <form class="project-form" method="POST" action="{{ url_for('add_project') }}">
+      <div class="field">
+        <label for="title">Title *</label>
+        <input id="title" name="title" type="text" required placeholder="e.g., Airport Security Analytics (Project 1)">
+      </div>
+
+      <div class="field">
+        <label for="description">Description *</label>
+        <textarea id="description" name="description" rows="6" required placeholder="Brief description of what this project does, tools used, outcomes..."></textarea>
+      </div>
+
+      <div class="field">
+        <label for="image_file_name">Image File Name (from static/images) *</label>
+        <input id="image_file_name" name="image_file_name" type="text" required placeholder="e.g., airport_project.jpg">
+        <div class="hint">
+          Place your image file in <code>static/images/</code> and enter only the file name here.
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="button" type="submit">Save Project</button>
+        <a class="button" href="{{ url_for('projects') }}">Cancel</a>
+      </div>
+    </form>
+  </main>
+</body>
+</html>

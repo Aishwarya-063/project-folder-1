@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  web:
+    build: .
+    container_name: flask_portfolio
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      # Set to 1 to enable debug mode inside container if desired
+      # - FLASK_DEBUG=1
+    # Uncomment to persist the SQLite DB to host (optional)
+    # volumes:
+    #   - ./projects.db:/app/projects.db
+

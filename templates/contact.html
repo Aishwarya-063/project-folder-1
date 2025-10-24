@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Aishwarya Kondaparthi</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>Aishwarya Kondaparthi</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="/templates/index.html">Home</a></li>
+                    <li><a href="/templates/about.html">About Me</a></li>
+                    <li><a href="/templates/resume.html">Resume</a></li>
+                    <li><a href="/templates/projects.html">Projects</a></li>
+                    <li><a href="/templates/add_project.html">Add Projects</a></li>
+                    <li><a href="/templates/contact.html" class="active">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-hero">
+            <div class="container">
+                <h1>Contact Me</h1>
+                <p>Get in touch for opportunities or collaborations</p>
+            </div>
+        </section>
+
+        <section class="contact-content">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h2>Get In Touch</h2>
+                        <div class="contact-item">
+                            <h3>Email</h3>
+                            <p><a href="mailto:aikonda@iu.edu">aikonda@iu.edu</a></p>
+                        </div>
+                        <div class="contact-item">
+                            <h3>Phone</h3>
+                            <p>930-333-6401</p>
+                        </div>
+                        <div class="contact-item">
+                            <h3>LinkedIn</h3>
+                            <p><a href="https://www.linkedin.com/in/aishwarya-kondaparthi">linkedin.com/in/aishwarya-kondaparthi</a></p>
+                        </div>
+                        <div class="contact-item">
+                            <h3>Location</h3>
+                            <p>Bloomington, IN</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-form">
+                        <h2>Send a Message</h2>
+                        <form id="contactForm" action="/templates/thankyou.html" method="GET">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                                <span class="error-message" id="firstNameError"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                                <span class="error-message" id="lastNameError"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                                <span class="error-message" id="emailError"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password">Password *</label>
+                                <input type="password" id="password" name="password" required minlength="8">
+                                <span class="error-message" id="passwordError"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm Password *</label>
+                                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                                <span class="error-message" id="confirmPasswordError"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" placeholder="Your message..."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Aishwarya Kondaparthi. All rights reserved.</p>
+            <div class="social-links">
+                <a href="mailto:aikonda@iu.edu">Email</a>
+                <a href="https://www.linkedin.com/in/aishwarya-kondaparthi">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            let isValid = true;
+            
+            // Clear previous errors
+            document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+            
+            // Password validation
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (password.length < 8) {
+                document.getElementById('passwordError').textContent = 'Password must be at least 8 characters';
+                isValid = false;
+            }
+            
+            if (password !== confirmPassword) {
+                document.getElementById('confirmPasswordError').textContent = 'Passwords do not match';
+                isValid = false;
+            }
+            
+            if (!isValid) {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
+
+

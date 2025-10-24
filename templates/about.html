@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Aishwarya Kondaparthi</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>Aishwarya Kondaparthi</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="/templates/index.html">Home</a></li>
+                    <li><a href="/templates/about.html" class="active">About Me</a></li>
+                    <li><a href="/templates/resume.html">Resume</a></li>
+                    <li><a href="/templates/projects.html">Projects</a></li>
+                    <li><a href="/templates/add_project.html">Add Projects</a></li>
+                    <li><a href="/templates/contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="about-hero">
+            <div class="container">
+                <h1 class="fade-in">My Journey</h1>
+                <p class="hero-subtitle fade-in-delay">From Engineering Foundations to Business Technology Leadership</p>
+            </div>
+        </section>
+
+        <section class="about-content">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-text">
+                        <div class="story-section slide-in-left">
+                            <h2>Building Technical Foundations</h2>
+                            <p>My journey began with a Bachelor's in Electronics and Communication Engineering, where I developed a strong foundation in technical problem-solving and systems thinking. This engineering background taught me to approach challenges with analytical rigor and attention to detail.</p>
+                        </div>
+
+                        <div class="story-section slide-in-right">
+                            <h2>Discovering the Business-Technology Intersection</h2>
+                            <p>During my professional experiences at Recruit CRM and C360 Software, I discovered my passion for bridging technical capabilities with business objectives. Analyzing user feedback and optimizing product features revealed how technology serves as an enabler for strategic business outcomes.</p>
+                        </div>
+
+                        <div class="story-section slide-in-left">
+                            <h2>Pursuing Strategic Leadership</h2>
+                            <p>Currently pursuing my Master's in Information Systems at Indiana University, I'm deepening my expertise in cloud architecture, AI, and product management. My leadership roles—from Vice President of Communicando CBIT to Marketing Chair at Women's Graduate Business Association—have honed my ability to drive engagement and deliver results.</p>
+                        </div>
+
+                        <div class="story-section slide-in-right">
+                            <h2>My Professional Philosophy</h2>
+                            <p>I believe in creating technology solutions that are not just technically sound but also strategically aligned with business goals and user needs. My approach combines analytical thinking with creative problem-solving, ensuring solutions are both innovative and practical.</p>
+                        </div>
+
+                        <div class="values-section fade-in">
+                            <h3>Core Values</h3>
+                            <div class="values-grid">
+                                <div class="value-item">
+                                    <span class="value-icon">🎯</span>
+                                    <h4>Strategic Impact</h4>
+                                    <p>Focusing on solutions that drive measurable business value</p>
+                                </div>
+                                <div class="value-item">
+                                    <span class="value-icon">🤝</span>
+                                    <h4>Collaborative Leadership</h4>
+                                    <p>Building bridges between technical teams and business stakeholders</p>
+                                </div>
+                                <div class="value-item">
+                                    <span class="value-icon">💡</span>
+                                    <h4>Continuous Learning</h4>
+                                    <p>Staying curious about emerging technologies and business trends</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-image">
+                        <img src="/static/images/professional-photo.jpg" alt="Aishwarya Kondaparthi - Professional Photo" class="profile-photo float-animation" onerror="this.style.display='none'; document.getElementById('imagePlaceholder').style.display='block';">
+                        <div id="imagePlaceholder" class="image-placeholder" style="display: none;">
+                            <p>Add your professional photo as 'professional-photo.jpg' in the images folder</p>
+                        </div>
+                        
+                        <div class="personal-interests fade-in">
+                            <h3>Beyond Professional Life</h3>
+                            <div class="interests-list">
+                                <div class="interest-item">
+                                    <span class="interest-icon">🧘‍♀️</span>
+                                    <span>Mindfulness & Meditation</span>
+                                </div>
+                                <div class="interest-item">
+                                    <span class="interest-icon">📈</span>
+                                    <span>MNC Growth Stories</span>
+                                </div>
+                                <div class="interest-item">
+                                    <span class="interest-icon">🌟</span>
+                                    <span>Leadership Development</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Aishwarya Kondaparthi. All rights reserved.</p>
+            <div class="social-links">
+                <a href="mailto:aikonda@iu.edu">Email</a>
+                <a href="https://www.linkedin.com/in/aishwarya-kondaparthi">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.fade-in, .fade-in-delay, .slide-in-left, .slide-in-right, .float-animation');
+            
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                if (el.classList.contains('slide-in-left')) {
+                    el.style.transform = 'translateX(-50px)';
+                } else if (el.classList.contains('slide-in-right')) {
+                    el.style.transform = 'translateX(50px)';
+                } else if (el.classList.contains('fade-in') || el.classList.contains('fade-in-delay')) {
+                    el.style.transform = 'translateY(30px)';
+                }
+                observer.observe(el);
+            });
+
+            // Check if image loads successfully
+            const img = document.querySelector('.profile-photo');
+            const placeholder = document.getElementById('imagePlaceholder');
+            
+            if (img && img.complete && img.naturalHeight === 0) {
+                img.style.display = 'none';
+                placeholder.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
+
+
